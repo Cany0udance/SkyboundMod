@@ -1,8 +1,8 @@
 {
-  "${modID}:CharacterID": {
+  "${modID}:TheSkybound": {
     "NAMES": [
-      "The Name (Displayed in character select)",
-      "the Name (but 'the' is lowercase, this is displayed at the top left during gameplay)"
+      "The Skybound",
+      "the Skybound"
     ],
     "TEXT": [
       "Line #1 of character select description. NL Line 2 of character select description.",
