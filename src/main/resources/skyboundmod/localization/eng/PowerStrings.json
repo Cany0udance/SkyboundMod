@@ -4,5 +4,11 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:UrgePower": {
+    "NAME": "Urge",
+    "DESCRIPTIONS": [
+      "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
+    ]
   }
 }

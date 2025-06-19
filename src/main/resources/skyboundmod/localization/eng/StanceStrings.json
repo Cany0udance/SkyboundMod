@@ -1,0 +1,8 @@
+{
+  "${modID}:TransformedStance": {
+    "NAME": "Transformed",
+    "DESCRIPTION": [
+      "Deal double damage. You cannot play Skills or Powers. Lose 2 Urge at the end of every turn."
+    ]
+  }
+}

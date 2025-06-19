@@ -27,5 +27,12 @@
       "Fool's_Gold"
     ],
     "DESCRIPTION": "Fool's Gold is spent before actual #yGold. Expires at the end of combat."
+  },
+  {
+    "PROPER_NAME": "Urge",
+    "NAMES": [
+      "Urge"
+    ],
+    "DESCRIPTION": "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
   }
 ]

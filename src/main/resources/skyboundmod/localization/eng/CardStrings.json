@@ -25,5 +25,9 @@
   "${modID}:Slash": {
     "NAME": "Slash",
     "DESCRIPTION": "Deal !D! damage. Gain ${modID}:Fool's_Gold equal to unblocked damage dealt."
+  },
+  "${modID}:FeatherPoke": {
+    "NAME": "Feather Poke",
+    "DESCRIPTION": "Deal !D! damage. Gain !M! ${modID}:Urge."
   }
 }

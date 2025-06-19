@@ -47,7 +47,8 @@ public class SkyboundMod implements
     /*
         TO-DO
 
-        - Force updating on situational cards when gaining/losing gold
+        - Force updating yellow border on situational cards when gaining/losing gold
+        - Remove hardcoded strings
 
      */
 
@@ -135,6 +136,8 @@ public class SkyboundMod implements
                 localizationPath(lang, "PowerStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 localizationPath(lang, "RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(StanceStrings.class,
+                localizationPath(lang, "StanceStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 localizationPath(lang, "UIStrings.json"));
     }
