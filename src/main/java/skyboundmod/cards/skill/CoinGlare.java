@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import skyboundmod.actions.SpendGoldAction;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.util.CardStats;
@@ -30,8 +31,8 @@ public class CoinGlare extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Deduct gold
-        p.loseGold(GOLD_COST);
+        // Spend gold (Fool's Gold first, then real gold)
+        addToBot(new SpendGoldAction(GOLD_COST));
 
         // Apply Weak to all enemies
         for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -49,6 +50,7 @@ public class CoinGlare extends BaseCard {
             }
         }
     }
+
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

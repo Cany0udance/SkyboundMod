@@ -19,5 +19,13 @@
       "multiword_keywords"
     ],
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+  {
+    "PROPER_NAME": "Fool's Gold",
+    "NAMES": [
+      "Fool's Gold",
+      "Fool's_Gold"
+    ],
+    "DESCRIPTION": "Fool's Gold is spent before actual #yGold. Expires at the end of combat."
   }
 ]

@@ -3,6 +3,8 @@ package skyboundmod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
@@ -36,13 +38,26 @@ public class SkyboundMod implements
         EditKeywordsSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
+        OnStartBattleSubscriber,
+        PostBattleSubscriber,
+        StartGameSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber {
+
+    /*
+        TO-DO
+
+        - Force updating on situational cards when gaining/losing gold
+
+     */
+
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
+    public static int foolsGold = 0;
+    public static int displayFoolsGold = 0;
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -219,32 +234,47 @@ public class SkyboundMod implements
     }
 
     @Override
-    public void receiveEditRelics() { //somewhere in the class
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseRelic.class) //In the same package as this class
-                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+    public void receiveEditRelics() {
+        new AutoAdd(modID)
+                .packageFilter(BaseRelic.class)
+                .any(BaseRelic.class, (info, relic) -> {
                     if (relic.pool != null)
-                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                        BaseMod.addRelicToCustomPool(relic, relic.pool);
                     else
-                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
-
-                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
-                    //If you want all your relics to be visible by default, just remove this if statement.
+                        BaseMod.addRelic(relic, relic.relicType);
                     UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
     }
 
     @Override
-    public void receiveEditCards() { //somewhere in the class
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
-                .setDefaultSeen(true) //And marks them as seen in the compendium
-                .cards(); //Adds the cards
+    public void receiveEditCards() {
+        new AutoAdd(modID)
+                .packageFilter(BaseCard.class)
+                .setDefaultSeen(true)
+                .cards();
     }
 
     @Override
     public void receiveEditCharacters() {
         TheSkybound.Meta.registerCharacter();
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        foolsGold = 0;
+        displayFoolsGold = 0;
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        foolsGold = 0;
+        displayFoolsGold = 0;
+    }
+
+    @Override
+    public void receiveStartGame() {
+        foolsGold = 0;
+        displayFoolsGold = 0;
     }
 
 }

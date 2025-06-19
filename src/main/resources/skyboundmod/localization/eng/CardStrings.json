@@ -21,5 +21,9 @@
     "NAME": "Coin Glare",
     "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Costs 5 Gold to play.",
     "UPGRADE_DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to ALL enemies. NL Costs 5 Gold to play."
+  },
+  "${modID}:Slash": {
+    "NAME": "Slash",
+    "DESCRIPTION": "Deal !D! damage. Gain ${modID}:Fool's_Gold equal to unblocked damage dealt."
   }
 }
