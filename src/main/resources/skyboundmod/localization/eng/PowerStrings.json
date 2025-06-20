@@ -10,5 +10,48 @@
     "DESCRIPTIONS": [
       "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
     ]
+  },
+  "${modID}:PocketChangePower": {
+    "NAME": "Pocket Change",
+    "DESCRIPTIONS": [
+      "Lose #yGold equal to damage blocked this turn.",
+      "Lose #yGold equal to #b",
+      " times the damage blocked this turn."
+    ]
+  },
+  "${modID}:DonationPower": {
+    "NAME": "Donation",
+    "DESCRIPTIONS": [
+      "At the end of combat, gain #b",
+      " #yGold.",
+      " #yGold."
+    ]
+  },
+  "${modID}:BidingTimePower": {
+    "NAME": "Biding Time",
+    "DESCRIPTIONS": [
+      "In #b",
+      " turn, gain #b",
+      " #yRitual.",
+      " turns, gain #b",
+      " #yRitual."
+    ]
+  },
+  "${modID}:SpringDaggersPower": {
+    "NAME": "Spring Daggers",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, deal #b",
+      " damage to a random enemy."
+    ]
+  },
+  "${modID}:GutFeelingPower": {
+    "NAME": "Gut Feeling",
+    "DESCRIPTIONS": [
+      "In #b",
+      " turn, gain #b",
+      " Energy.",
+      " turns, gain #b",
+      " Energy."
+    ]
   }
 }

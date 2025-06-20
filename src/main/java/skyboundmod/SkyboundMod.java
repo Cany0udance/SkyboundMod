@@ -49,6 +49,11 @@ public class SkyboundMod implements
 
         - Force updating yellow border on situational cards when gaining/losing gold
         - Remove hardcoded strings
+        - Ask about intended Dive upgrade
+        - Remove logs (such as in PocketChangePatch)
+        - Fix formatting of power strings, etc (numbers should be blue)
+        - Inform about improvised upgrades (Coin Toss 15 - 12 gold lost instead of 12 - 15)
+        - Inform about Molting (pretty sure I misunderstood this)
 
      */
 

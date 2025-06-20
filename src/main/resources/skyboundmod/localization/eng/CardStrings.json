@@ -29,5 +29,85 @@
   "${modID}:FeatherPoke": {
     "NAME": "Feather Poke",
     "DESCRIPTION": "Deal !D! damage. Gain !M! ${modID}:Urge."
+  },
+  "${modID}:FeatherFlurry": {
+    "NAME": "Feather Flurry",
+    "DESCRIPTION": "Deal !D! damage 4 times. Gain 1 ${modID}:Urge."
+  },
+  "${modID}:Channeling": {
+    "NAME": "Channeling",
+    "DESCRIPTION": "Gain !B! Block next turn."
+  },
+  "${modID}:Dive": {
+    "NAME": "Dive",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength. NL Lose !M! Strength at the end of the turn."
+  },
+  "${modID}:PocketChange": {
+    "NAME": "Pocket Change",
+    "DESCRIPTION": "Gain !B! Block. Lose Gold equal to damage blocked this turn."
+  },
+  "${modID}:Resist": {
+    "NAME": "Resist",
+    "DESCRIPTION": "Gain !B! Block. NL Lose !M! ${modID}:Urge."
+  },
+  "${modID}:Donation": {
+    "NAME": "Donation",
+    "DESCRIPTION": "Lose !M! Gold. NL At the end of combat, gain double the Gold lost from this card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Gold twice. NL At the end of combat, gain double the Gold lost from this card. NL Exhaust."
+  },
+  "${modID}:CoinToss": {
+    "NAME": "Coin Toss",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Lose !M! Gold."
+  },
+  "${modID}:Wingbeat": {
+    "NAME": "Wingbeat",
+    "DESCRIPTION": "Gain !B! Block !M! times."
+  },
+  "${modID}:TalonSlash": {
+    "NAME": "Talon Slash",
+    "DESCRIPTION": "Deal X damage to an enemy X times.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage to an enemy X+1 times."
+  },
+  "${modID}:BidingTime": {
+    "NAME": "Biding Time",
+    "DESCRIPTION": "In !M! turns, gain 1 Ritual. NL Exhaust."
+  },
+  "${modID}:Molting": {
+    "NAME": "Molting",
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain !B! Block."
+  },
+  "${modID}:Hook": {
+    "NAME": "Hook",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Rake": {
+    "NAME": "Rake",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. Each enemy after the first takes !M! additional damage."
+  },
+  "${modID}:Skygaze": {
+    "NAME": "Skygaze",
+    "DESCRIPTION": "Draw 1 card. NL Next turn, draw !M! card and gain [E] .",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Next turn, draw !M! cards and gain [E] ."
+  },
+  "${modID}:Parry": {
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! Block. NL Strength affects Block gained."
+  },
+  "${modID}:Caw": {
+    "NAME": "Caw!",
+    "DESCRIPTION": "Innate. Ethereal. NL Gain !M! Strength. NL End your turn."
+  },
+  "${modID}:SpringDaggers": {
+    "NAME": "Spring Daggers",
+    "DESCRIPTION": "At the start of your next turn, deal !M! damage to a random enemy."
+  },
+  "${modID}:Poke": {
+    "NAME": "Poke",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain ${modID}:Urge, move this card to your hand."
+  },
+  "${modID}:GutFeeling": {
+    "NAME": "Gut Feeling",
+    "DESCRIPTION": "Gain [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL Gain [E] [E] in 2 turns."
   }
 }
