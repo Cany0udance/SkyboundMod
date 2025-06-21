@@ -53,5 +53,36 @@
       " turns, gain #b",
       " Energy."
     ]
+  },
+  "${modID}:SkyflightPower": {
+    "NAME": "Skyflight",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " time you take unblocked attack damage, take #b50% less damage.",
+      " times you take unblocked attack damage, take #b50% less damage."
+    ]
+  },
+  "${modID}:DoubleAttackPower": {
+    "NAME": "Double Attack",
+    "DESCRIPTIONS": [
+      "Your next Attack is played twice.",
+      "Your next #b",
+      " Attacks are played twice."
+    ]
+  },
+  "${modID}:BirdsEyePower": {
+    "NAME": "Bird's Eye",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yGold, gain #b",
+      " additional #yGold."
+    ]
+  },
+  "${modID}:TruthSeekPower": {
+    "NAME": "Truth Seek",
+    "DESCRIPTIONS": [
+      "Whenever you play a Power, gain #b",
+      "1 #yStrength.",
+      " #yStrength."
+    ]
   }
 }

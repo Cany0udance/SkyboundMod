@@ -45,7 +45,7 @@ public class SkyboundMod implements
         PostInitializeSubscriber {
 
     /*
-        TO-DO
+        TO-DO / CONSIDERATIONS
 
         - Force updating yellow border on situational cards when gaining/losing gold
         - Remove hardcoded strings
@@ -54,6 +54,9 @@ public class SkyboundMod implements
         - Fix formatting of power strings, etc (numbers should be blue)
         - Inform about improvised upgrades (Coin Toss 15 - 12 gold lost instead of 12 - 15)
         - Inform about Molting (pretty sure I misunderstood this)
+        - Fool's Gold should be taken first before regular gold by Thieves
+        - Ectoplasm and Fool's Gold interactions? Bloody Idol?
+        - Ectoplasm and Bird's Eye?
 
      */
 

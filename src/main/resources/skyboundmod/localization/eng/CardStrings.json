@@ -109,5 +109,49 @@
     "NAME": "Gut Feeling",
     "DESCRIPTION": "Gain [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain [E] next turn. NL Gain [E] [E] in 2 turns."
+  },
+  "${modID}:WingSlash": {
+    "NAME": "Wing Slash",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! ${modID}:Skyflight."
+  },
+  "${modID}:Screech": {
+    "NAME": "Screech",
+    "DESCRIPTION": "Turn all your Ritual into double that amount in Strength. NL Your next attack is played twice."
+  },
+  "${modID}:Peck": {
+    "NAME": "Peck",
+    "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength."
+  },
+  "${modID}:GoldenWall": {
+    "NAME": "Golden Wall",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! additional Block for each 50 Gold held."
+  },
+  "${modID}:BirdsEye": {
+    "NAME": "Bird's Eye",
+    "DESCRIPTION": "Whenever you gain Gold, gain !M! additional Gold."
+  },
+  "${modID}:RitualDance": {
+    "NAME": "Ritual Dance",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Ritual."
+  },
+  "${modID}:Soar": {
+    "NAME": "Soar",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! ${modID}:Urge."
+  },
+  "${modID}:TruthSeek": {
+    "NAME": "Truth Seek",
+    "DESCRIPTION": "Whenever you play a Power, gain !M! Strength."
+  },
+  "${modID}:MoltenGold": {
+    "NAME": "Molten Gold",
+    "DESCRIPTION": "Deal !D! damage. NL Deal !M! additional damage for each 50 Gold held."
+  },
+  "${modID}:MoneyRain": {
+    "NAME": "Money Rain",
+    "DESCRIPTION": "Deal !D! damage for every 50 Gold held. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits !H! times.)",
+      ""
+    ]
   }
 }

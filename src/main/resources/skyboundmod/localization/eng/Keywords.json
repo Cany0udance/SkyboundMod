@@ -34,5 +34,12 @@
       "Urge"
     ],
     "DESCRIPTION": "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
+  },
+  {
+    "PROPER_NAME": "Skyflight",
+    "NAMES": [
+      "Skyflight"
+    ],
+    "DESCRIPTION": "When taking unblocked damage, reduce damage by half, then lose #b1 Skyflight."
   }
 ]
