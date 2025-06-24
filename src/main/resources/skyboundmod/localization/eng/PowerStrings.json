@@ -8,7 +8,9 @@
   "${modID}:UrgePower": {
     "NAME": "Urge",
     "DESCRIPTIONS": [
-      "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
+      "Upon reaching #b5 Urge, if not #yTransformed, double your #yStrength and enter #yTransformation.",
+      "Upon reaching #b",
+      " Urge, if not #yTransformed, double your #yStrength and enter #yTransformation."
     ]
   },
   "${modID}:PocketChangePower": {
@@ -160,6 +162,28 @@
       "In #b",
       " turns, gains #b",
       " #yStrength."
+    ]
+  },
+  "${modID}:SubordinationPower": {
+    "NAME": "Subordination",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " extra #yStrength from #yRitual."
+    ]
+  },
+  "${modID}:SecondRoundPower": {
+    "NAME": "Second Round",
+    "DESCRIPTIONS": [
+      "When killing a non-minion enemy, return the last #yExhausted card that turn to your hand.",
+      "When killing a non-minion enemy, return all #yExhausted cards that turn to your hand."
+    ]
+  },
+  "${modID}:DreamForeverPower": {
+    "NAME": "Dream Forever",
+    "DESCRIPTIONS": [
+      "At the start of your turn, lose ",
+      " [E] .",
+      " [E] ."
     ]
   }
 }

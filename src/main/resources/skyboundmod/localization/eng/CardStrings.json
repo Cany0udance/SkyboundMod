@@ -215,5 +215,51 @@
     "NAME": "Procrastinate",
     "DESCRIPTION": "Remove !M! Strength from ALL enemies. ALL enemies gain 6 Strength in X turns.",
     "UPGRADE_DESCRIPTION": "Remove !M! Strength from ALL enemies. ALL enemies gain 6 Strength in X+1 turns."
+  },
+  "${modID}:Subordination": {
+    "NAME": "Subordination",
+    "DESCRIPTION": "Gain !M! extra Strength from Ritual."
+  },
+  "${modID}:Swoop": {
+    "NAME": "Swoop",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Gain !B! Block !M! times."
+  },
+  "${modID}:SecondRound": {
+    "NAME": "Second Round",
+    "DESCRIPTION": "When killing a non-minion enemy, return the last Exhausted card that turn to your hand.",
+    "UPGRADE_DESCRIPTION": "When killing a non-minion enemy, return all Exhausted cards that turn to your hand."
+  },
+  "${modID}:HoldBack": {
+    "NAME": "Hold Back",
+    "DESCRIPTION": "Increase the requirement to *Transform by !M! ${modID}:Urge."
+  },
+  "${modID}:Nap": {
+    "NAME": "Nap",
+    "DESCRIPTION": "Gain !B! Block and end your turn. NL Next turn, gain [E] ."
+  },
+  "${modID}:DreamForever": {
+    "NAME": "Dream Forever",
+    "DESCRIPTION": "Take an extra turn after this one. Generate !M! less [E] at the start of your turn."
+  },
+  "${modID}:SunBathe": {
+    "NAME": "Sun Bathe",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. Apply !M! Weak to ALL enemies."
+  },
+  "${modID}:Reoccurrence": {
+    "NAME": "Reoccurrence",
+    "DESCRIPTION": "Move all cards in hand to draw pile and end your turn.",
+    "UPGRADE_DESCRIPTION": "Move all cards in hand to draw pile and end your turn. NL Next turn, draw !M! extra card."
+  },
+  "${modID}:Reunion": {
+    "NAME": "Reunion",
+    "DESCRIPTION": "Innate. Ethereal. NL EVERYONE loses !M! Strength. NL Exhaust."
+  },
+  "${modID}:DaggerDrop": {
+    "NAME": "Dagger Drop",
+    "DESCRIPTION": "Gain !M! ${modID}:Urge."
+  },
+  "${modID}:Betray": {
+    "NAME": "Betray",
+    "DESCRIPTION": "Deal !D! damage. NL Repeat for every stack of negative Strength on the enemy. NL Exhaust."
   }
 }

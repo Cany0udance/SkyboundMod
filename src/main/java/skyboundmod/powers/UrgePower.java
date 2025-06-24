@@ -17,9 +17,22 @@ import java.util.ArrayList;
 
 public class UrgePower extends BasePower {
     public static final String POWER_ID = SkyboundMod.makeID("UrgePower");
+    private int transformThreshold = 5; // Default threshold
 
     public UrgePower(final AbstractCreature owner, final int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
+        updateDescription();
+    }
+
+    // Constructor for when Hold Back is played before any Urge is gained
+    public UrgePower(final AbstractCreature owner, final int amount, final int thresholdIncrease) {
+        super(POWER_ID, PowerType.BUFF, false, owner, amount);
+        this.transformThreshold += thresholdIncrease;
+        updateDescription();
+    }
+
+    public void increaseTransformThreshold(int increase) {
+        this.transformThreshold += increase;
         updateDescription();
     }
 
@@ -80,7 +93,7 @@ public class UrgePower extends BasePower {
     }
 
     private void checkTransformation() {
-        if (this.amount >= 5 && !(AbstractDungeon.player.stance instanceof TransformedStance)) {
+        if (this.amount >= transformThreshold && !(AbstractDungeon.player.stance instanceof TransformedStance)) {
             // Double strength
             int currentStrength = this.owner.getPower(StrengthPower.POWER_ID) != null ? this.owner.getPower(StrengthPower.POWER_ID).amount : 0;
             if (currentStrength > 0) {
@@ -95,6 +108,10 @@ public class UrgePower extends BasePower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (transformThreshold == 5) {
+            description = DESCRIPTIONS[0];
+        } else {
+            description = DESCRIPTIONS[1] + transformThreshold + DESCRIPTIONS[2];
+        }
     }
 }

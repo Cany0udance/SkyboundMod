@@ -3,6 +3,7 @@ package skyboundmod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -40,6 +41,7 @@ public class SkyboundMod implements
         EditRelicsSubscriber,
         OnStartBattleSubscriber,
         PostBattleSubscriber,
+        OnPlayerTurnStartSubscriber,
         StartGameSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber {
@@ -69,6 +71,7 @@ public class SkyboundMod implements
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
     public static int foolsGold = 0;
     public static int displayFoolsGold = 0;
+    public static ArrayList<AbstractCard> exhaustedThisTurn = new ArrayList<>();
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -276,6 +279,11 @@ public class SkyboundMod implements
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         foolsGold = 0;
         displayFoolsGold = 0;
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        exhaustedThisTurn.clear();
     }
 
     @Override
