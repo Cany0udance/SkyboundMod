@@ -45,7 +45,7 @@ public class SkyboundMod implements
         PostInitializeSubscriber {
 
     /*
-        TO-DO / CONSIDERATIONS
+        TODO / CONSIDERATIONS
 
         - Force updating yellow border on situational cards when gaining/losing gold
         - Remove hardcoded strings
@@ -57,6 +57,8 @@ public class SkyboundMod implements
         - Fool's Gold should be taken first before regular gold by Thieves
         - Ectoplasm and Fool's Gold interactions? Bloody Idol?
         - Ectoplasm and Bird's Eye?
+        - Refactor Fool's Gold gain into a global method which accounts for Bird's Eye. Also,
+        Stock Bubble needs Bird's Eye support
 
      */
 

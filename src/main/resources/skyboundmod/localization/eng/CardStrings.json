@@ -153,5 +153,67 @@
       " NL (Hits !H! times.)",
       ""
     ]
+  },
+  "${modID}:StockBubble": {
+    "NAME": "Stock Bubble",
+    "DESCRIPTION": "Gain !M! ${modID}:Fool's_Gold. NL Reduce this value by 10 when played this combat."
+  },
+  "${modID}:Hatch": {
+    "NAME": "Hatch",
+    "DESCRIPTION": "Gain !M! ${modID}:Urge. NL Gain 1 Strength. NL Exhaust."
+  },
+  "${modID}:Fluff": {
+    "NAME": "Fluff",
+    "DESCRIPTION": "When gaining or losing Strength, gain or lose 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Innate. NL When gaining or losing Strength, gain or lose 1 Dexterity."
+  },
+  "${modID}:OohShiny": {
+    "NAME": "Ooh, Shiny!",
+    "DESCRIPTION": "Gain !M! Gold. NL Exhaust."
+  },
+  "${modID}:PushOn": {
+    "NAME": "Push On",
+    "DESCRIPTION": "Take an extra turn after this one. Next turn, start with !M! [E] . NL Exhaust."
+  },
+  "${modID}:Circle": {
+    "NAME": "Circle",
+    "DESCRIPTION": "Take an extra turn after this one. Next turn, you cannot play Attacks. NL Exhaust."
+  },
+  "${modID}:Brainwash": {
+    "NAME": "Brainwash",
+    "DESCRIPTION": "Deal !D! damage and lower the Strength of the enemy hit by 1 for every following attack that hits this enemy this turn. NL Exhaust."
+  },
+  "${modID}:FullSend": {
+    "NAME": "Full Send",
+    "DESCRIPTION": "Gain [E] [E] [E] and !M! Strength."
+  },
+  "${modID}:BreakTime": {
+    "NAME": "Break Time",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, you cannot play Attacks, but your first card is played twice.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Next turn, you cannot play Attacks, but your first !M! cards are played twice."
+  },
+  "${modID}:CultRules": {
+    "NAME": "Cult Rules",
+    "DESCRIPTION": "Double a random debuff on ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double all debuffs on ALL enemies. NL Exhaust."
+  },
+  "${modID}:CrescentSlash": {
+    "NAME": "Crescent Slash",
+    "DESCRIPTION": "Deal !D! damage. NL Play a random Skill in hand."
+  },
+  "${modID}:Ambush": {
+    "NAME": "Ambush",
+    "DESCRIPTION": "Innate. Ethereal. NL Play the next Attack twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Play the next Attack twice. NL Exhaust."
+  },
+  "${modID}:PoundOfFeathers": {
+    "NAME": "Pound of Feathers",
+    "DESCRIPTION": "Gain Block equal to the damage your next Attack deals. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to the damage your next Attack deals."
+  },
+  "${modID}:Procrastinate": {
+    "NAME": "Procrastinate",
+    "DESCRIPTION": "Remove !M! Strength from ALL enemies. ALL enemies gain 6 Strength in X turns.",
+    "UPGRADE_DESCRIPTION": "Remove !M! Strength from ALL enemies. ALL enemies gain 6 Strength in X+1 turns."
   }
 }

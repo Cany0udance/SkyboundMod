@@ -1,4 +1,4 @@
-package skyboundmod.cards.power;
+package skyboundmod.cards.skill;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -6,43 +6,43 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
-import skyboundmod.powers.BirdsEyePower;
+import skyboundmod.powers.DoubleAttackPower;
 import skyboundmod.util.CardStats;
 
-public class BirdsEye extends BaseCard {
-    public static final String ID = makeID("BirdsEye");
+public class Ambush extends BaseCard {
+    public static final String ID = makeID("Ambush");
     private static final CardStats info = new CardStats(
             TheSkybound.Meta.CARD_COLOR,
-            CardType.POWER,
+            CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            1
+            0
     );
-    private static final int BONUS_GOLD = 5;
-    private static final int UPG_BONUS_GOLD = 8;
 
-    public BirdsEye() {
+    public Ambush() {
         super(ID, info);
-        setMagic(BONUS_GOLD, UPG_BONUS_GOLD);
-        tags.add(CardTags.HEALING);
+        setExhaust(true);
+        setEthereal(true);
+        setInnate(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BirdsEyePower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new DoubleAttackPower(p, 1), 1));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPG_BONUS_GOLD - BONUS_GOLD);
+            setEthereal(false);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new BirdsEye();
+        return new Ambush();
     }
 }

@@ -84,5 +84,82 @@
       "1 #yStrength.",
       " #yStrength."
     ]
+  },
+  "${modID}:FluffPower": {
+    "NAME": "Fluff",
+    "DESCRIPTIONS": [
+      "When gaining or losing Strength, gain or lose #b1 #yDexterity.",
+      "When gaining or losing Strength, gain or lose #b",
+      " #yDexterity."
+    ]
+  },
+  "${modID}:ExtraTurnPower": {
+    "NAME": "Extra Turn",
+    "DESCRIPTIONS": [
+      "Skip the next enemy turn.",
+      "Skip the next #b",
+      " enemy turns."
+    ]
+  },
+  "${modID}:LimitedEnergyPower": {
+    "NAME": "Limited Energy",
+    "DESCRIPTIONS": [
+      "Start your next turn with #b",
+      " Energy.",
+      "Start your next turn with #b0 Energy.",
+      "Start your next #b",
+      "turn",
+      "turns",
+      " with #b",
+      " Energy, then the following #b",
+      " with #b0 Energy.",
+      "Start your next #b",
+      " with #b",
+      " Energy.",
+      "Start your next #b",
+      " with #b0 Energy."
+    ]
+  },
+  "${modID}:NoAttacksPower": {
+    "NAME": "Entangling",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, become #yEntangled.",
+      "At the start of your next #b",
+      " turns, become #yEntangled."
+    ]
+  },
+  "${modID}:BrainwashPower": {
+    "NAME": "Brainwashed",
+    "DESCRIPTIONS": [
+      "Loses #b1 #yStrength when hit by an attack this turn.",
+      "Loses #b",
+      " #yStrength when hit by an attack this turn."
+    ]
+  },
+  "${modID}:BreakTimePower": {
+    "NAME": "Break Time",
+    "DESCRIPTIONS": [
+      "Next turn, your first card is played twice.",
+      "Next turn, your first ",
+      " cards are played twice."
+    ]
+  },
+  "${modID}:PoundOfFeathersPower": {
+    "NAME": "Pound of Feathers",
+    "DESCRIPTIONS": [
+      "Gain Block equal to the damage your next Attack deals.",
+      "Gain Block equal to the damage your next ",
+      " Attacks deal."
+    ]
+  },
+  "${modID}:ProcrastinatePower": {
+    "NAME": "Procrastinating",
+    "DESCRIPTIONS": [
+      "Next turn, gains #b",
+      " #yStrength.",
+      "In #b",
+      " turns, gains #b",
+      " #yStrength."
+    ]
   }
 }

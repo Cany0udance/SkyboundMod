@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
-import skyboundmod.powers.BirdsEyePower;
+import skyboundmod.powers.FluffPower;
 import skyboundmod.util.CardStats;
 
-public class BirdsEye extends BaseCard {
-    public static final String ID = makeID("BirdsEye");
+public class Fluff extends BaseCard {
+    public static final String ID = makeID("Fluff");
     private static final CardStats info = new CardStats(
             TheSkybound.Meta.CARD_COLOR,
             CardType.POWER,
@@ -18,31 +18,27 @@ public class BirdsEye extends BaseCard {
             CardTarget.SELF,
             1
     );
-    private static final int BONUS_GOLD = 5;
-    private static final int UPG_BONUS_GOLD = 8;
 
-    public BirdsEye() {
+    public Fluff() {
         super(ID, info);
-        setMagic(BONUS_GOLD, UPG_BONUS_GOLD);
-        tags.add(CardTags.HEALING);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BirdsEyePower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new FluffPower(p, 1), 1));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPG_BONUS_GOLD - BONUS_GOLD);
-            initializeDescription();
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.isInnate = true;
         }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new BirdsEye();
+        return new Fluff();
     }
 }
