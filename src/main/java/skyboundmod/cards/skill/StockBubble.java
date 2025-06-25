@@ -7,6 +7,7 @@ import skyboundmod.SkyboundMod;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.util.CardStats;
+import skyboundmod.util.GoldUtils;
 
 public class StockBubble extends BaseCard {
     public static final String ID = makeID("StockBubble");
@@ -28,8 +29,8 @@ public class StockBubble extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Gain Fool's Gold
-        SkyboundMod.foolsGold += this.magicNumber;
+        // Gain Fool's Gold with Bird's Eye bonus automatically applied
+        GoldUtils.gainFoolsGold(this.magicNumber);
 
         // Reduce the card's value for future plays this combat
         this.baseMagicNumber -= REDUCTION;

@@ -185,5 +185,20 @@
       " [E] .",
       " [E] ."
     ]
+  },
+  "${modID}:InsurancePower": {
+    "NAME": "Insurance",
+    "DESCRIPTIONS": [
+      "Whenever you lose #yGold, draw #b",
+      " card.",
+      " cards."
+    ]
+  },
+  "${modID}:BargainingPower": {
+    "NAME": "Bargaining",
+    "DESCRIPTIONS": [
+      "All cards can be played regardless of restrictions at the cost of #b",
+      " #yGold."
+    ]
   }
 }

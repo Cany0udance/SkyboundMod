@@ -11,6 +11,7 @@ import skyboundmod.actions.SpendGoldAction;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.util.CardStats;
+import skyboundmod.util.GoldUtils;
 
 public class CoinGlare extends BaseCard {
     public static final String ID = makeID("CoinGlare");
@@ -31,7 +32,7 @@ public class CoinGlare extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Spend gold (Fool's Gold first, then real gold)
+        // Simplified gold spending
         addToBot(new SpendGoldAction(GOLD_COST));
 
         // Apply Weak to all enemies
@@ -51,13 +52,12 @@ public class CoinGlare extends BaseCard {
         }
     }
 
-
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         boolean canUse = super.canUse(p, m);
         if (!canUse) {
             return false;
-        } else if (p.gold < GOLD_COST) {
+        } else if (!GoldUtils.canAfford(GOLD_COST)) {
             this.cantUseMessage = "Not enough gold!";
             return false;
         } else {
@@ -68,7 +68,7 @@ public class CoinGlare extends BaseCard {
     @Override
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (AbstractDungeon.player.gold >= GOLD_COST) {
+        if (GoldUtils.canAfford(GOLD_COST)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

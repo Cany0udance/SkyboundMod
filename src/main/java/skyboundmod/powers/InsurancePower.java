@@ -1,22 +1,22 @@
 package skyboundmod.powers;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import skyboundmod.SkyboundMod;
-import skyboundmod.util.GoldUtils;
 
-public class DonationPower extends BasePower {
-    public static final String POWER_ID = SkyboundMod.makeID("DonationPower");
+public class InsurancePower extends BasePower {
+    public static final String POWER_ID = SkyboundMod.makeID("InsurancePower");
 
-    public DonationPower(final AbstractCreature owner, final int amount) {
+    public InsurancePower(final AbstractCreature owner, final int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         updateDescription();
     }
 
-    @Override
-    public void onVictory() {
-        // Use the centralized gold gaining method to ensure Bird's Eye bonus is applied
-        GoldUtils.gainGold(this.amount);
+    public void onLoseGold(int goldLost) {
+        if (goldLost > 0) {
+            flash();
+            addToBot(new DrawCardAction(owner, this.amount));
+        }
     }
 
     @Override

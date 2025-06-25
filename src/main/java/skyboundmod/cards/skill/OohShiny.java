@@ -10,6 +10,7 @@ import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.powers.BirdsEyePower;
 import skyboundmod.util.CardStats;
+import skyboundmod.util.GoldUtils;
 
 public class OohShiny extends BaseCard {
     public static final String ID = makeID("OohShiny");
@@ -31,18 +32,8 @@ public class OohShiny extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int goldToGain = magicNumber;
-
-        // Check for Bird's Eye Power and add bonus
-        if (AbstractDungeon.player.hasPower(BirdsEyePower.POWER_ID)) {
-            AbstractPower birdsEyePower = AbstractDungeon.player.getPower(BirdsEyePower.POWER_ID);
-            if (birdsEyePower != null) {
-                goldToGain += birdsEyePower.amount;
-                birdsEyePower.flash();
-            }
-        }
-
-        addToBot(new GainGoldAction(goldToGain));
+        // Manual Bird's Eye calculation, no patch interference
+        GoldUtils.gainGold(magicNumber); // This uses our utility method
     }
 
     @Override

@@ -261,5 +261,14 @@
   "${modID}:Betray": {
     "NAME": "Betray",
     "DESCRIPTION": "Deal !D! damage. NL Repeat for every stack of negative Strength on the enemy. NL Exhaust."
+  },
+  "${modID}:Insurance": {
+    "NAME": "Insurance",
+    "DESCRIPTION": "Whenever you lose Gold, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you lose Gold, draw !M! cards."
+  },
+  "${modID}:Bargaining": {
+    "NAME": "Bargaining",
+    "DESCRIPTION": "All cards can be played regardless of restrictions at the cost of !M! *Gold."
   }
 }

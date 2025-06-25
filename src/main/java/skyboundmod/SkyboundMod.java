@@ -11,6 +11,7 @@ import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.relics.BaseRelic;
 import skyboundmod.util.GeneralUtils;
+import skyboundmod.util.GoldUtils;
 import skyboundmod.util.KeywordInfo;
 import skyboundmod.util.TextureLoader;
 import com.badlogic.gdx.Files;
@@ -277,8 +278,7 @@ public class SkyboundMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-        foolsGold = 0;
-        displayFoolsGold = 0;
+        GoldUtils.resetFoolsGold();
     }
 
     @Override
@@ -288,14 +288,12 @@ public class SkyboundMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        foolsGold = 0;
-        displayFoolsGold = 0;
+        GoldUtils.resetFoolsGold();
     }
 
     @Override
     public void receiveStartGame() {
-        foolsGold = 0;
-        displayFoolsGold = 0;
+        GoldUtils.resetFoolsGold();
     }
 
 }

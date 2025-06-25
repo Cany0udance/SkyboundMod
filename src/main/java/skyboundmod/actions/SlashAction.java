@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import skyboundmod.SkyboundMod;
 import skyboundmod.powers.BirdsEyePower;
+import skyboundmod.util.GoldUtils;
 
 public class SlashAction extends AbstractGameAction {
     private DamageInfo info;
@@ -30,20 +31,12 @@ public class SlashAction extends AbstractGameAction {
             if (this.isDone) {
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_DIAGONAL, false));
                 this.target.damage(this.info);
+
                 if (this.target.lastDamageTaken > 0) {
-                    int foolsGoldGained = this.target.lastDamageTaken;
-
-                    // Check for Bird's Eye Power and add bonus
-                    if (AbstractDungeon.player.hasPower(BirdsEyePower.POWER_ID)) {
-                        AbstractPower birdsEyePower = AbstractDungeon.player.getPower(BirdsEyePower.POWER_ID);
-                        if (birdsEyePower != null) {
-                            foolsGoldGained += birdsEyePower.amount;
-                            birdsEyePower.flash();
-                        }
-                    }
-
-                    SkyboundMod.foolsGold += foolsGoldGained;
+                    // Much cleaner - all Bird's Eye logic is handled internally
+                    GoldUtils.gainFoolsGold(this.target.lastDamageTaken);
                 }
+
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                     AbstractDungeon.actionManager.clearPostCombatActions();
                 } else {

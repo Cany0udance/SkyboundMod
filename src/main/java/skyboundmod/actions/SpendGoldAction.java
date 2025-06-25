@@ -3,6 +3,7 @@ package skyboundmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import skyboundmod.SkyboundMod;
+import skyboundmod.util.GoldUtils;
 
 public class SpendGoldAction extends AbstractGameAction {
     private int goldToSpend;
@@ -15,20 +16,7 @@ public class SpendGoldAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        // Spend Fool's Gold first
-        if (SkyboundMod.foolsGold >= goldToSpend) {
-            // Can pay entirely with Fool's Gold
-            SkyboundMod.foolsGold -= goldToSpend;
-        } else if (SkyboundMod.foolsGold > 0) {
-            // Spend all Fool's Gold, then pay the rest with real gold
-            int remainingCost = goldToSpend - SkyboundMod.foolsGold;
-            SkyboundMod.foolsGold = 0;
-            AbstractDungeon.player.loseGold(remainingCost);
-        } else {
-            // No Fool's Gold, pay with real gold
-            AbstractDungeon.player.loseGold(goldToSpend);
-        }
-
+        GoldUtils.spendGold(goldToSpend);
         this.isDone = true;
     }
 }
