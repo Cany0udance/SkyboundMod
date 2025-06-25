@@ -1,11 +1,16 @@
 package skyboundmod.patches;
 
+import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -18,6 +23,9 @@ import skyboundmod.util.GoldUtils;
 import java.util.Iterator;
 
 public class BargainingPatches {
+
+    // Track which card should spend gold when played
+    private static AbstractCard cardToSpendGoldFor = null;
 
     // Patch for hasEnoughEnergy() method
     @SpirePatch(clz = AbstractCard.class, method = "hasEnoughEnergy")
@@ -41,20 +49,27 @@ public class BargainingPatches {
         }
     }
 
-    // Patch for canUse() method to handle the actual gold spending
+    // Patch for canUse() method
     @SpirePatch(clz = AbstractCard.class, method = "canUse")
     public static class UsePatch {
         @SpirePostfixPatch
         public static boolean Postfix(boolean __result, AbstractCard __instance, AbstractPlayer p, AbstractMonster m) {
-            // If the card can already be used normally, no need to check Bargaining
-            if (__result) {
-                return true;
+            // Clear any previous flag
+            cardToSpendGoldFor = null;
+
+            // Check if card can be played normally WITHOUT any Bargaining help
+            boolean originalCanUse = canUseWithoutBargaining(__instance, p, m);
+
+            // If it can be played normally, don't interfere
+            if (originalCanUse) {
+                return originalCanUse;
             }
 
-            // Check if the only issue is energy/restrictions and Bargaining can help
-            if (__instance.cardPlayable(m) && p.hasPower(BargainingPower.POWER_ID)) {
+            // If it can't be played normally, check if Bargaining can help
+            if (p.hasPower(BargainingPower.POWER_ID)) {
                 BargainingPower bargainingPower = (BargainingPower) p.getPower(BargainingPower.POWER_ID);
-                if (GoldUtils.canAfford(bargainingPower.getGoldCost())) {
+                if (GoldUtils.canAfford(bargainingPower.getGoldCost()) && __instance.cardPlayable(m)) {
+                    cardToSpendGoldFor = __instance;
                     return true;
                 }
             }
@@ -63,25 +78,51 @@ public class BargainingPatches {
         }
     }
 
-    // Patch to actually spend the gold when a card is played via Bargaining
-    @SpirePatch(clz = AbstractCard.class, method = "use")
+    // Helper method to check if card can be used without any Bargaining interference
+    private static boolean canUseWithoutBargaining(AbstractCard card, AbstractPlayer p, AbstractMonster m) {
+        // Check basic card type restrictions
+        if (card.type == AbstractCard.CardType.STATUS && card.costForTurn < -1 && !p.hasRelic("Medical Kit")) {
+            return false;
+        }
+        if (card.type == AbstractCard.CardType.CURSE && card.costForTurn < -1 && !p.hasRelic("Blue Candle")) {
+            return false;
+        }
+
+        // Check if card is playable against target
+        if (!card.cardPlayable(m)) {
+            return false;
+        }
+
+        // Check energy without Bargaining interference
+        return hasEnoughEnergyWithoutBargaining(card);
+    }
+
+    // Patch to spend gold when card is actually played
+    @SpirePatch(clz = UseCardAction.class, method = "update")
     public static class GoldSpendPatch {
         @SpirePrefixPatch
-        public static void Prefix(AbstractCard __instance, AbstractPlayer p, AbstractMonster m) {
-            // Check if this card is being played via Bargaining (can't normally be played but Bargaining allows it)
-            boolean normallyPlayable = (__instance.type != AbstractCard.CardType.STATUS || __instance.costForTurn >= -1 || p.hasRelic("Medical Kit")) &&
-                    (__instance.type != AbstractCard.CardType.CURSE || __instance.costForTurn >= -1 || p.hasRelic("Blue Candle")) &&
-                    __instance.cardPlayable(m) &&
-                    hasEnoughEnergyWithoutBargaining(__instance);
+        public static void Prefix(UseCardAction __instance) {
+            // Only trigger on the first frame of update
+            float duration = ReflectionHacks.getPrivate(__instance, AbstractGameAction.class, "duration");
+            if (duration != 0.15F) {
+                return;
+            }
 
-            if (!normallyPlayable && p.hasPower(BargainingPower.POWER_ID)) {
-                BargainingPower bargainingPower = (BargainingPower) p.getPower(BargainingPower.POWER_ID);
-                if (GoldUtils.canAfford(bargainingPower.getGoldCost())) {
-                    // Spend the gold
-                    AbstractDungeon.actionManager.addToBottom(new SpendGoldAction(bargainingPower.getGoldCost()));
-                    // Flash the power to show it's being used
-                    bargainingPower.flash();
-                }
+            AbstractCard card = ReflectionHacks.getPrivate(__instance, UseCardAction.class, "targetCard");
+
+            // Check if this is the card we marked for gold spending
+            if (cardToSpendGoldFor != null && card.uuid.equals(cardToSpendGoldFor.uuid) &&
+                    AbstractDungeon.player.hasPower(BargainingPower.POWER_ID)) {
+
+                BargainingPower bargainingPower = (BargainingPower) AbstractDungeon.player.getPower(BargainingPower.POWER_ID);
+
+                // Spend the gold
+                AbstractDungeon.actionManager.addToBottom(new SpendGoldAction(bargainingPower.getGoldCost()));
+                // Flash the power to show it's being used
+                bargainingPower.flash();
+
+                // Clear the flag
+                cardToSpendGoldFor = null;
             }
         }
     }

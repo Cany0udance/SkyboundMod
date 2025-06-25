@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import skyboundmod.SkyboundMod;
+import skyboundmod.powers.PreeningPower;
 import skyboundmod.powers.UrgePower;
 
 public class TransformedStance extends AbstractStance {
@@ -25,8 +26,9 @@ public class TransformedStance extends AbstractStance {
 
     @Override
     public void onEndOfTurn() {
-        // Lose 2 Urge at the end of every turn while Transformed
-        if (AbstractDungeon.player.hasPower(UrgePower.POWER_ID)) {
+        // Only lose Urge if we don't have Preening power
+        if (AbstractDungeon.player.hasPower(UrgePower.POWER_ID) &&
+                !AbstractDungeon.player.hasPower(PreeningPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(
                     AbstractDungeon.player, AbstractDungeon.player, UrgePower.POWER_ID, 2
             ));

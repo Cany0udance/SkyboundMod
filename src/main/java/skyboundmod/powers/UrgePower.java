@@ -1,6 +1,7 @@
 package skyboundmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -39,8 +40,17 @@ public class UrgePower extends BasePower {
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        // Call the hook whenever Urge is gained
-        onUrgeGained(stackAmount);
+
+        // Check if we hit 0 or negative and remove the power
+        if (this.amount <= 0) {
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            return; // Don't do other effects if we're removing the power
+        }
+
+        // Call the hook whenever Urge is gained (only if we're not removing)
+        if (stackAmount > 0) {
+            onUrgeGained(stackAmount);
+        }
         checkTransformation();
     }
 
@@ -89,6 +99,15 @@ public class UrgePower extends BasePower {
             }
             // Lose Transformation (exit stance)
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new NeutralStance()));
+        }
+
+        // NEW: Handle Nevermore delayed damage when losing all Urge
+        if (this.owner.hasPower(NevermorePower.POWER_ID) && this.owner.hasPower(DelayedDamagePower.POWER_ID)) {
+            DelayedDamagePower delayedDamage = (DelayedDamagePower) this.owner.getPower(DelayedDamagePower.POWER_ID);
+            if (delayedDamage.amount > 0) {
+                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, delayedDamage.amount));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, delayedDamage));
+            }
         }
     }
 

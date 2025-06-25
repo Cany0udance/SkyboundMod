@@ -32,10 +32,6 @@ public class BargainingPower extends BasePower {
 
     @Override
     public void updateDescription() {
-        if (upgraded) {
-            description = DESCRIPTIONS[1]; // Should mention 25 gold cost
-        } else {
-            description = DESCRIPTIONS[0]; // Should mention 35 gold cost
-        }
+        description = DESCRIPTIONS[0] + goldCost + DESCRIPTIONS[1];
     }
 }

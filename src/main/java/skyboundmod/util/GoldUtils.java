@@ -1,10 +1,13 @@
 package skyboundmod.util;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import skyboundmod.SkyboundMod;
 import skyboundmod.powers.BirdsEyePower;
+import skyboundmod.powers.GunsAreButtersPower;
 import skyboundmod.powers.InsurancePower;
 
 import java.util.HashMap;
@@ -34,6 +37,18 @@ public class GoldUtils {
                 birdsEyePower.flash();
             }
         }
+
+        // Guns are Butters trigger for Fool's Gold
+        if (AbstractDungeon.player.hasPower(GunsAreButtersPower.POWER_ID) && totalAmount > 0) {
+            AbstractPower gunsAreButtersPower = AbstractDungeon.player.getPower(GunsAreButtersPower.POWER_ID);
+            if (gunsAreButtersPower != null) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        new StrengthPower(AbstractDungeon.player, gunsAreButtersPower.amount),
+                        gunsAreButtersPower.amount));
+                gunsAreButtersPower.flash();
+            }
+        }
+
         SkyboundMod.foolsGold += totalAmount;
     }
 

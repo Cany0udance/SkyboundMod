@@ -200,5 +200,54 @@
       "All cards can be played regardless of restrictions at the cost of #b",
       " #yGold."
     ]
+  },
+  "${modID}:GunsAreButtersPower": {
+    "NAME": "Guns Are Butters",
+    "DESCRIPTIONS": [
+      "Whenever you gain Gold, gain #b",
+      " #yStrength."
+    ]
+  },
+  "${modID}:DominatePower": {
+    "NAME": "Dominated",
+    "DESCRIPTIONS": [
+      "When this enemy dies, gain #b",
+      " #yStrength."
+    ]
+  },
+  "${modID}:IntangibleNextTurnPower": {
+    "NAME": "Intangible Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b",
+      " #yIntangible."
+    ]
+  },
+  "${modID}:NevermorePower": {
+    "NAME": "Nevermore",
+    "DESCRIPTIONS": [
+      "Store unblocked damage while you have #yUrge. Lose stored damage as health when losing all #yUrge. Lose #b1 #yUrge at the end of your turn."
+    ]
+  },
+  "${modID}:DelayedDamagePower": {
+    "NAME": "Delayed Damage",
+    "DESCRIPTIONS": [
+      "Will lose #b1 HP when you run out of #yUrge.",
+      "Will lose #b",
+      " HP when you run out of #yUrge."
+    ]
+  },
+  "${modID}:AscendedFormPower": {
+    "NAME": "Ascended Form",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b1 #yRitual.",
+      "At the start of your turn, gain #b",
+      " #yRitual."
+    ]
+  },
+  "${modID}:PreeningPower": {
+    "NAME": "Preening",
+    "DESCRIPTIONS": [
+      "While #yTransformed, you no longer lose #yUrge."
+    ]
   }
 }

@@ -270,5 +270,55 @@
   "${modID}:Bargaining": {
     "NAME": "Bargaining",
     "DESCRIPTION": "All cards can be played regardless of restrictions at the cost of !M! *Gold."
+  },
+  "${modID}:GunsAreButters": {
+    "NAME": "Guns Are Butters",
+    "DESCRIPTION": "Whenever you gain Gold, gain !M! Strength."
+  },
+  "${modID}:Dominate": {
+    "NAME": "Dominate",
+    "DESCRIPTION": "Deal !D! damage. NL When this enemy is killed, gain !M! Strength."
+  },
+  "${modID}:Retch": {
+    "NAME": "Retch",
+    "DESCRIPTION": "Gain 1 Ritual. NL Lose !M! Strength."
+  },
+  "${modID}:Untouchable": {
+    "NAME": "Untouchable",
+    "DESCRIPTION": "Gain !M! Intangible next turn. NL End your turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible next turn."
+  },
+  "${modID}:FlockCall": {
+    "NAME": "Flock Call",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "${modID}:Culling": {
+    "NAME": "Culling",
+    "DESCRIPTION": "Deal !D! damage. NL Double damage for each unique debuff on the enemy. NL Exhaust."
+  },
+  "${modID}:GrazeTheSky": {
+    "NAME": "Graze the Sky",
+    "DESCRIPTION": "Gain 3 ${modID}:Skyflight. NL Lose !M! Dexterity."
+  },
+  "${modID}:Nevermore": {
+    "NAME": "Nevermore",
+    "DESCRIPTION": "Store unblocked damage as long as you have ${modID}:Urge and lose it as health when losing all ${modID}:Urge. NL Lose 1 ${modID}:Urge at the end of your turn."
+  },
+  "${modID}:AscendedForm": {
+    "NAME": "Ascended Form",
+    "DESCRIPTION": "At the start of your turn, gain !M! Ritual."
+  },
+  "${modID}:ChocolateGold": {
+    "NAME": "Chocolate Gold",
+    "DESCRIPTION": "Lose !M! Gold. NL Heal 10 HP. NL Exhaust."
+  },
+  "${modID}:CurseOut": {
+    "NAME": "Curse Out",
+    "DESCRIPTION": "Apply !M! Weak. NL Apply !M! Vulnerable. NL Enemy loses 1 Strength. NL Exhaust."
+  },
+  "${modID}:Preening": {
+    "NAME": "Preening",
+    "DESCRIPTION": "While Transformed, you no longer lose ${modID}:Urge."
   }
+
 }
