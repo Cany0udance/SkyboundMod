@@ -8,5 +8,41 @@
       " into a description.",
       " Exactly how depends on the potion, and you can set it up however you want."
     ]
+  },
+  "${modID}:UrgePotion": {
+    "NAME": "Urge Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yStrength. Gain #b3 #yUrge."
+    ]
+  },
+  "${modID}:LiquidGold": {
+    "NAME": "Liquid Gold",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yGold."
+    ]
+  },
+  "${modID}:FoolsPotion": {
+    "NAME": "Fool's Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yFool's #yGold."
+    ]
+  },
+  "${modID}:SkippingPotion": {
+    "NAME": "Skipping Potion",
+    "DESCRIPTIONS": [
+      "Skip the enemy's next turn. Start next turn with half energy (rounded down).",
+      "Skip the enemy's next #b",
+      " turns. Start next turn with half energy (rounded down)."
+    ]
+  },
+  "${modID}:BottledWings": {
+    "NAME": "Bottled Wings",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #ySkyflight."
+    ]
   }
 }

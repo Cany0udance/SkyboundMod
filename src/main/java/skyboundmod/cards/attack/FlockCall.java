@@ -21,7 +21,7 @@ public class FlockCall extends BaseCard {
     );
     private static final int DAMAGE = 1;
     private static final int MAGIC = 7;
-    private static final int UPG_MAGIC = 10;
+    private static final int UPG_MAGIC = 3;
 
     public FlockCall() {
         super(ID, info);

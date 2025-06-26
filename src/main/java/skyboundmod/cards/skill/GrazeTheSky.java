@@ -14,7 +14,7 @@ public class GrazeTheSky extends BaseCard {
     public static final String ID = makeID("GrazeTheSky");
     private static final CardStats info = new CardStats(
             TheSkybound.Meta.CARD_COLOR,
-            CardType.SKILL,
+            CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
             1

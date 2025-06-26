@@ -249,5 +249,21 @@
     "DESCRIPTIONS": [
       "While #yTransformed, you no longer lose #yUrge."
     ]
+  },
+  "${modID}:HalfEnergyNextTurnPower": {
+    "NAME": "Half Energy",
+    "DESCRIPTIONS": [
+      "Start next turn with half energy (rounded down).",
+      "Start next #b",
+      " turns with half energy (rounded down)."
+    ]
+  },
+  "${modID}:GoldenPower": {
+    "NAME": "Golden",
+    "DESCRIPTIONS": [
+      "When this enemy dies, gain #b1 #yGold.",
+      "When this enemy dies, gain #b",
+      " #yGold."
+    ]
   }
 }

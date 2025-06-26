@@ -5,5 +5,68 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:PinFeathers": {
+    "NAME": "Pin Feathers",
+    "FLAVOR": "Strange feathers that grow into the skin of those normally chosen by the Flock.",
+    "DESCRIPTIONS": [
+      "At the start of the second turn in battle, gain #b1 #yStrength."
+    ]
+  },
+  "${modID}:ClippedFeathers": {
+    "NAME": "Clipped Feathers",
+    "FLAVOR": "Refined and controlled feathers, groomed to represent control over power and superiority.",
+    "DESCRIPTIONS": [
+      "Replaces Pin Feathers. At the start of combat, gain #b1 #yRitual."
+    ]
+  },
+  "${modID}:WaxWings": {
+    "NAME": "Wax Wings",
+    "FLAVOR": "Fake wings made of wax and covered in feathers, worn by cultists of the Flock. Caw caw!",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain #b2 #ySkyflight."
+    ]
+  },
+  "${modID}:BrokenCompass": {
+    "NAME": "Broken Compass",
+    "FLAVOR": "The broken compass of a lost adventurer. The needle slowly spins around like a clock.",
+    "DESCRIPTIONS": [
+      "Every #b5 turns, take an extra turn."
+    ]
+  },
+  "${modID}:CultistCloak": {
+    "NAME": "Cultist Cloak",
+    "FLAVOR": "A ruffled and feathery cloak, mass produced and dirty. Might offer a bit of protection.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b5 Block."
+    ]
+  },
+  "${modID}:SadimsFork": {
+    "NAME": "Sadim's Fork",
+    "FLAVOR": "A lost relic of a forgotten god, said to never have touched the spire, but to have sent followers inside.",
+    "DESCRIPTIONS": [
+      "Whenever an attack deals damage to a non-minion enemy, apply #b1 #yGolden."
+    ]
+  },
+  "${modID}:CounterfeitCoinpurse": {
+    "NAME": "Counterfeit Coinpurse",
+    "FLAVOR": "A coinpurse bearing the mark of a famous noble, though only a cheap copy of the real thing.",
+    "DESCRIPTIONS": [
+      "Whenever you enter a shop, gain #b50 #yFool's #yGold that expires when leaving it."
+    ]
+  },
+  "${modID}:TaxNotice": {
+    "NAME": "Tax Notice",
+    "FLAVOR": "An old notice for what looks like tax returns for vendors. Comes from the City, imposed by the Champ.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Whenever you lose #yGold, lose #b25% more."
+    ]
+  },
+  "${modID}:HouseSlippers": {
+    "NAME": "House Slippers",
+    "FLAVOR": "Some cheap old slippers. Keeps your feet warm, and it's better than nothing.",
+    "DESCRIPTIONS": [
+      "Whenever you add a #rCurse to your deck, gain #b100 #yGold."
+    ]
   }
 }

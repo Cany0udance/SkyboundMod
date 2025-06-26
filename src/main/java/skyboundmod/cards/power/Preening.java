@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
+import skyboundmod.powers.PreeningPower;
 import skyboundmod.util.CardStats;
 
 public class Preening extends BaseCard {
@@ -25,7 +26,7 @@ public class Preening extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new PreeningPower(p), 1));
+        addToBot(new ApplyPowerAction(p, p, new PreeningPower(p)));
     }
 
     @Override

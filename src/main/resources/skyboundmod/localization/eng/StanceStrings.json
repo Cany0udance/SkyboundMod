@@ -2,7 +2,7 @@
   "${modID}:TransformedStance": {
     "NAME": "Transformed",
     "DESCRIPTION": [
-      "Deal double damage. You cannot play Skills or Powers. Lose 2 Urge at the end of every turn."
+      "Deal double damage. You cannot play Skills or Powers. Lose 2 Urge at the end of every turn, and when reaching 0 Urge, lose all Strength and leave Transformation."
     ]
   }
 }
