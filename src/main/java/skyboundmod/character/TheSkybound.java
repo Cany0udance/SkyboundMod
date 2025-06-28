@@ -3,16 +3,13 @@ package skyboundmod.character;
 import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
-import com.megacrit.cardcrawl.cards.green.Neutralize;
-import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -20,9 +17,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import skyboundmod.cards.attack.Slash;
+import skyboundmod.cards.attack.Swipe;
 import skyboundmod.cards.attack.Strike;
 import skyboundmod.cards.skill.Defend;
 import skyboundmod.relics.PinFeathers;
@@ -123,14 +119,19 @@ public class TheSkybound extends CustomPlayer {
     public TheSkybound() {
         super(getNames()[0], Meta.SKYBOUND,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
-                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                new AbstractAnimation() { //Change the animation line to this.
+                    @Override
+                    public Type type() {
+                        return Type.NONE; //A NONE animation results in img being used instead.
+                    }
+                });
 
-        initializeClass(null,
+        initializeClass(characterPath("SkyboundBattle.png"),
                 SHOULDER_2,
                 SHOULDER_1,
                 CORPSE,
                 getLoadout(),
-                20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
+                20.0F, -5.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
                 new EnergyManager(ENERGY_PER_TURN));
 
         //Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
@@ -151,7 +152,7 @@ public class TheSkybound extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Slash.ID);
+        retVal.add(Swipe.ID);
 
         return retVal;
     }
@@ -169,7 +170,7 @@ public class TheSkybound extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
-        return new Slash();
+        return new Swipe();
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/

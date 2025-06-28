@@ -41,5 +41,12 @@
       "Skyflight"
     ],
     "DESCRIPTION": "When taking unblocked damage, reduce damage by half, then lose #b1 Skyflight."
+  },
+  {
+    "PROPER_NAME": "Transformed",
+    "NAMES": [
+      "Transformed"
+    ],
+    "DESCRIPTION": "While Transformed, deal double damage. You cannot play Skills or Powers. Lose #b2 Urge at the end of every turn, and when reaching #b0 Urge, lose all Strength and leave Transformation."
   }
 ]

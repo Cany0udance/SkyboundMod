@@ -3,7 +3,9 @@ package skyboundmod.potions;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.util.GoldUtils;
 
@@ -20,6 +22,14 @@ public class LiquidGold extends BasePotion {
         super(ID, 25, PotionRarity.COMMON, PotionSize.BOTTLE, LIQUID_COLOR, HYBRID_COLOR, SPOTS_COLOR);
         playerClass = TheSkybound.Meta.SKYBOUND;
         labOutlineColor = new Color(218f/255f, 165f/255f, 32f/255f, 1f);
+    }
+
+    public boolean canUse() {
+        if (AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            return false;
+        } else {
+            return AbstractDungeon.getCurrRoom().event == null || !(AbstractDungeon.getCurrRoom().event instanceof WeMeetAgain);
+        }
     }
 
     @Override

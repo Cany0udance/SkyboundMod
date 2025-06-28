@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import skyboundmod.actions.DominateAction;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.powers.DominatePower;
@@ -22,20 +23,16 @@ public class Dominate extends BaseCard {
             2
     );
     private static final int DAMAGE = 15;
-    private static final int UPG_DAMAGE = 20;
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 3;
+    private static final int UPG_DAMAGE = 5;
 
     public Dominate() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        addToBot(new ApplyPowerAction(m, p, new DominatePower(m, p, magicNumber), magicNumber));
+        addToBot(new DominateAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
     }
 
     @Override
@@ -43,7 +40,6 @@ public class Dominate extends BaseCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPG_DAMAGE);
-            upgradeMagicNumber(UPG_MAGIC);
             initializeDescription();
         }
     }

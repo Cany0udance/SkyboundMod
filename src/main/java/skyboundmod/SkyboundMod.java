@@ -58,11 +58,8 @@ public class SkyboundMod implements
         - Fix formatting of power strings, etc (numbers should be blue)
         - Inform about improvised upgrades (Coin Toss 15 - 12 gold lost instead of 12 - 15)
         - Inform about Molting (pretty sure I misunderstood this)
-        - Fool's Gold should be taken first before regular gold by Thieves
         - Ectoplasm and Fool's Gold interactions? Bloody Idol?
         - Ectoplasm and Bird's Eye?
-        - Refactor Fool's Gold gain into a global method which accounts for Bird's Eye. Also,
-        Stock Bubble needs Bird's Eye support
 
      */
 

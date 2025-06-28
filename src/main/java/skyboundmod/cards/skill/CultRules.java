@@ -1,11 +1,13 @@
 package skyboundmod.cards.skill;
 
+import com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import skyboundmod.cards.BaseCard;
 import skyboundmod.character.TheSkybound;
 import skyboundmod.util.CardStats;
@@ -34,7 +36,7 @@ public class CultRules extends BaseCard {
                 if (upgraded) {
                     // Upgraded: Double all debuffs
                     for (AbstractPower power : monster.powers) {
-                        if (power.type == AbstractPower.PowerType.DEBUFF && power.amount > 0) {
+                        if (isEffectiveDebuff(power)) {
                             addToBot(new ApplyPowerAction(monster, p, power, power.amount));
                         }
                     }
@@ -42,7 +44,7 @@ public class CultRules extends BaseCard {
                     // Unupgraded: Double a random debuff
                     ArrayList<AbstractPower> debuffs = new ArrayList<>();
                     for (AbstractPower power : monster.powers) {
-                        if (power.type == AbstractPower.PowerType.DEBUFF && power.amount > 0) {
+                        if (isEffectiveDebuff(power)) {
                             debuffs.add(power);
                         }
                     }
@@ -53,6 +55,20 @@ public class CultRules extends BaseCard {
                 }
             }
         }
+    }
+
+    private boolean isEffectiveDebuff(AbstractPower power) {
+        // Regular debuffs
+        if (power.type == AbstractPower.PowerType.DEBUFF && power.amount > 0) {
+            return true;
+        }
+
+        // Special case: Negative Strength/Dexterity (marked as BUFF but negative)
+        if (power.amount < 0 && (power.ID.equals(StrengthPower.POWER_ID))) {
+            return true;
+        }
+
+        return false;
     }
 
     @Override

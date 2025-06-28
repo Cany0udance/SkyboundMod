@@ -29,24 +29,24 @@ public class TalonSlash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int effect = EnergyPanel.totalCount;
-
-        // Check if the card is free to play (like from a relic or effect)
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
         }
-
         if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
             p.getRelic(ChemicalX.ID).flash();
         }
 
         if (effect > 0) {
-            int damageAmount = upgraded ? effect + 1 : effect;
+            // Set base damage first
+            int baseDamageAmount = upgraded ? effect + 1 : effect;
+            this.baseDamage = baseDamageAmount;
+            this.calculateCardDamage(m); // This applies Strength, Vulnerable, etc.
+
             int timesToAttack = upgraded ? effect + 1 : effect;
 
-            // Deal damage X times
             for (int i = 0; i < timesToAttack; i++) {
-                addToBot(new DamageAction(m, new DamageInfo(p, damageAmount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             }
 
             if (!this.freeToPlayOnce) {
@@ -59,6 +59,7 @@ public class TalonSlash extends BaseCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -16,9 +16,9 @@ public class GunsAreButters extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            3
+            2
     );
-    private static final int UPG_COST = 2;
+    private static final int UPG_COST = 1;
     private static final int MAGIC = 1;
 
     public GunsAreButters() {

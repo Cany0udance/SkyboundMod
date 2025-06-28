@@ -6,11 +6,14 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import skyboundmod.SkyboundMod;
+import skyboundmod.actions.PoundOfFeathersAction;
 
 public class PoundOfFeathersPower extends BasePower {
     public static final String POWER_ID = SkyboundMod.makeID("PoundOfFeathersPower");
+    private boolean nextAttackActive = false;
 
     public PoundOfFeathersPower(final AbstractCreature owner, final int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
@@ -21,16 +24,26 @@ public class PoundOfFeathersPower extends BasePower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK && this.amount > 0) {
             this.flash();
-            // Mark that we're tracking the next damage dealt
-            addToBot(new ApplyPowerAction(owner, owner, new PoundOfFeathersTrackingPower(owner, 1), 1));
+            this.nextAttackActive = true;
+        }
+    }
 
-            // Reduce the power amount
-            --this.amount;
-            if (this.amount == 0) {
-                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            } else {
-                updateDescription();
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (this.nextAttackActive && info.type == DamageInfo.DamageType.NORMAL) {
+            this.addToTop(new PoundOfFeathersAction(target));
+        }
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        if (card.type == AbstractCard.CardType.ATTACK && this.nextAttackActive) {
+            this.nextAttackActive = false;
+            this.amount--;
+            if (this.amount <= 0) {
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             }
+            this.updateDescription();
         }
     }
 

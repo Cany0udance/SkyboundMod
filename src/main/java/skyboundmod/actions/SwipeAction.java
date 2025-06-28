@@ -6,16 +6,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import skyboundmod.SkyboundMod;
-import skyboundmod.powers.BirdsEyePower;
 import skyboundmod.util.GoldUtils;
 
-public class SlashAction extends AbstractGameAction {
+public class SwipeAction extends AbstractGameAction {
     private DamageInfo info;
 
-    public SlashAction(AbstractCreature target, DamageInfo info) {
+    public SwipeAction(AbstractCreature target, DamageInfo info) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;

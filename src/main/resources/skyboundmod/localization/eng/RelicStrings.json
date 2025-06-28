@@ -10,7 +10,7 @@
     "NAME": "Pin Feathers",
     "FLAVOR": "Strange feathers that grow into the skin of those normally chosen by the Flock.",
     "DESCRIPTIONS": [
-      "At the start of the second turn in battle, gain #b1 #yStrength."
+      "At the end of your turn, if you have less than #b2 #yStrength, gain #b1 #yStrength."
     ]
   },
   "${modID}:ClippedFeathers": {

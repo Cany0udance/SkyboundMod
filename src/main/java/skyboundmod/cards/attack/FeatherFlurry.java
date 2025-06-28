@@ -47,6 +47,11 @@ public class FeatherFlurry extends BaseCard {
         }
     }
 
+    public void initializeDescription() {
+        super.initializeDescription();
+        this.keywords.add("skyboundmod:transformed");
+    }
+
     @Override
     public AbstractCard makeCopy() {
         return new FeatherFlurry();

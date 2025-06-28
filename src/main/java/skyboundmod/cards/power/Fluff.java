@@ -34,6 +34,7 @@ public class Fluff extends BaseCard {
             upgradeName();
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.isInnate = true;
+            initializeDescription();
         }
     }
 

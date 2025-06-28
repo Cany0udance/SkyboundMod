@@ -19,8 +19,8 @@ public class Hatch extends BaseCard {
             CardTarget.SELF,
             1
     );
-    private static final int URGE = 1;
-    private static final int UPG_URGE = 2;
+    private static final int URGE = 2;
+    private static final int UPG_URGE = 3;
     private static final int STRENGTH = 1;
 
     public Hatch() {
@@ -41,6 +41,11 @@ public class Hatch extends BaseCard {
             upgradeName();
             upgradeMagicNumber(UPG_URGE - URGE);
         }
+    }
+
+    public void initializeDescription() {
+        super.initializeDescription();
+        this.keywords.add("skyboundmod:transformed");
     }
 
     @Override

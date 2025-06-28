@@ -18,7 +18,7 @@ public class Skygaze extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.SELF,
-            1
+            0
     );
     private static final int DRAW = 1;
     private static final int NEXT_TURN_DRAW = 1;
